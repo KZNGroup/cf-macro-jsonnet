@@ -31,7 +31,7 @@ Resources:
 Transform: [Jsonnet]
 ```
 
-# Development
+## Development
 
 - Grab Python jsonnet bindings and compile them into a replica of the
   lambda environemnt
@@ -53,7 +53,7 @@ Transform: [Jsonnet]
   $ sam deploy --template-file /tmp/template.yml --stack-name cf-macro-jsonnet --capabilities CAPABILITY_IAM
   ```
 
-# TODO
+## TODO
 
 - hook into jsonnet `import` mechanism in some way
 - more meaningful examples
