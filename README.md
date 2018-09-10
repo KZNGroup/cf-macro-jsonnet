@@ -17,11 +17,6 @@ variables are added to the snipped scope.
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
-Description: tests String macro functions
-Parameters:
-  Tags:
-    Default: "Env=Prod,Application=MyApp,BU=ModernisationTeam"
-    Type: "CommaDelimitedList"
 Resources:
   S3Bucket:
     Type: "AWS::S3::Bucket"
@@ -61,6 +56,7 @@ Transform: [Jsonnet]
 # TODO
 
 - hook into jsonnet `import` mechanism in some way
+- more meaningful examples
 
 ## Author
 
