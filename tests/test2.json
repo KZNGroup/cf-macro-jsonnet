@@ -1,0 +1,25 @@
+{
+   "accountId": "1234567890",
+   "fragment": {
+      "AWSTemplateFormatVersion": "2010-09-09",
+      "Description": "tests String macro functions",
+      "Parameters": {
+         "Iterations": 10
+      },
+      "Resources": {
+         "S3Bucket": {
+            "Properties": {
+               "Tags": "#!jsonnet\nstd.range(0, params.Iterations)"
+            },
+            "Type": "AWS::S3::Bucket"
+         }
+      }
+   },
+   "params": { },
+   "region": "us-east-1",
+   "requestId": "1234567890",
+   "templateParameterValues": {
+      "Iterations": 10
+   },
+   "transformId": "1234567890"
+}

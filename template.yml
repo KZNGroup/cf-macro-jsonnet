@@ -1,0 +1,17 @@
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  JsonnetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.6
+      CodeUri: ./src
+
+  Macro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: Jsonnet
+      Description: Process CloudFormation template using Jsonnet
+      FunctionName: !GetAtt JsonnetFunction.Arn
+

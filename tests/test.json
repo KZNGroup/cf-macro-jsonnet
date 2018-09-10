@@ -1,0 +1,26 @@
+{
+   "accountId": "1234567890",
+   "fragment": {
+      "AWSTemplateFormatVersion": "2010-09-09",
+      "Description": "tests String macro functions",
+      "Parameters": {
+         "Tags": {
+            "Default": "Env=Prod,Application=MyApp,BU=ModernisationTeam",
+            "Type": "CommaDelimitedList"
+         }
+      },
+      "Resources": {
+         "S3Bucket": {
+            "Properties": {
+               "Tags": "#!jsonnet\nlocal tags = {\n  Project: 'take-over-the-world',\n  Stage: 'testing'\n};\n[{ Key: k, Value: tags[k] } for k in std.objectFields(tags)]\n"
+            },
+            "Type": "AWS::S3::Bucket"
+         }
+      }
+   },
+   "params": { },
+   "region": "us-east-1",
+   "requestId": "1234567890",
+   "templateParameterValues": { },
+   "transformId": "1234567890"
+}
