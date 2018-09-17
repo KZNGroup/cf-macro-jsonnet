@@ -17,6 +17,7 @@ variables are added to the snipped scope.
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
+Transform: [Jsonnet]
 Resources:
   S3Bucket:
     Type: "AWS::S3::Bucket"
@@ -28,28 +29,27 @@ Resources:
           Stage: 'testing'
         };
         [{ Key: k, Value: tags[k] } for k in std.objectFields(tags)]
-Transform: [Jsonnet]
 ```
 
 ## Development
 
-- Grab Python jsonnet bindings and compile them into a replica of the
+- Compile the Python jsonnet bindings into a replica of the
   lambda environemnt
 
   ```
   $ docker run -it --rm -v $PWD/src:/var/task lambci/lambda:build-python3.6 pip install -t . jsonnet
   ```
 
-- Use `aws-sam-cli` to tests the code
+- Use the [SAM cli](https://github.com/awslabs/aws-sam-cli) to tests the code locally
 
   ```
   $ sam local invoke --event ./tests/test.json
   ```
 
-- Deploy
+- Deploy to AWS Lambda
 
   ```
-  $ sam package --template-file template.yml --s3-bucket kzn-cf-macro-jsonnet --output-template /tmp/template.yml
+  $ sam package --template-file template.yml --s3-bucket ${BUCKET_NAME} --output-template /tmp/template.yml
   $ sam deploy --template-file /tmp/template.yml --stack-name cf-macro-jsonnet --capabilities CAPABILITY_IAM
   ```
 
@@ -57,7 +57,14 @@ Transform: [Jsonnet]
 
 - hook into jsonnet `import` mechanism in some way
 - more meaningful examples
+- proper testing
+
+
+## License
+
+[MIT License](http://www.opensource.org/licenses/MIT)
 
 ## Author
 
 [Andrea Bedini](https://github.com/andreabedini), [KZN Group](https://kzn.io)
+

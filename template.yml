@@ -4,7 +4,7 @@ Resources:
   JsonnetFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
+      Handler: handler.handler
       Runtime: python3.6
       CodeUri: ./src
 
