@@ -4,11 +4,11 @@ Run arbitrary [jsonnet](https://jsonnet.org) code in your CloudFormation templat
 
 ## Basic Usage
 
-Place jsonnet code as a literal bock anywhere in your template, the literal
+Place jsonnet code as a text block anywhere in your template, the text
 block will be replaced with its evaluation.
 
 Macro paramters are added to the snippet scope individually. These extra
-variables are added to the snipped scope.
+variables are added to the snipped scope:
 
 - `params`: the top-level template parameters
 - `template`: the entire template
