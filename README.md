@@ -78,7 +78,7 @@ Example:
 - Use the [SAM cli](https://github.com/awslabs/aws-sam-cli) to tests the code locally
 
   ```
-  $ sam local invoke --event ./tests/event.json
+  $ sam local invoke --event ./examples/event.json
   ```
 
 - Deploy to AWS Lambda
