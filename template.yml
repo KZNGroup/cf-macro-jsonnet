@@ -7,6 +7,9 @@ Resources:
       Handler: handler.handler
       Runtime: python3.6
       CodeUri: ./src
+      # Policies:
+      #   - S3ReadPolicy:
+      #       BucketName: ...
 
   Macro:
     Type: AWS::CloudFormation::Macro

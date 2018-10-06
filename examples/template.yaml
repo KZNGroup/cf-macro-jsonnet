@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: [Jsonnet]
+JsonnetLibraryUri: s3://path/to/jsonnet_lib.zip
+Resources:
+  S3Bucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      Tags: |
+        #!jsonnet
+        local utils = import "utils.jsonnet";
+        utils.toEntries({
+          Project: 'take-over-the-world',
+          Stage: 'testing'
+        })
